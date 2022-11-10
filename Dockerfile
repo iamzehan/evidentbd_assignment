@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 EXPOSE 8501
 
-WORKDIR ./
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
     build-essential \
