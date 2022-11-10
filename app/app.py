@@ -20,7 +20,7 @@ def main():
             "payload":payload
     }
 
-    with open('./config.yaml') as file: # this config.yaml file is responsible for storing authentication credentials
+    with open('./app/config.yaml') as file: # this config.yaml file is responsible for storing authentication credentials
         config = yaml.load(file,Loader=yaml.SafeLoader)
 
         authenticator = stauth.Authenticate(
@@ -93,7 +93,7 @@ def main():
     elif choice == "Signup":
         try:
             if authenticator.register_user('Sign Up', preauthorization=False):
-                with open('./config.yaml', 'w') as file:
+                with open('./app/config.yaml', 'w') as file:
                     yaml.dump(config, file, default_flow_style=False)
                 st.success('User registered successfully')
         except Exception as e:
